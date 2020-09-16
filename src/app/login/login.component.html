@@ -1,0 +1,43 @@
+<div class="mt-5">
+  <form [formGroup]="loginForm">
+    <fieldset class="container">
+      <legend>Login</legend>
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          aria-describedby="emailHelp"
+          placeholder="Informe seu email"
+        >
+      </div>
+      <app-mensagem-erro
+        texto="Informe um email"
+        *ngIf="loginForm.get('email').errors?.required && loginForm.get('email').dirty"
+      ></app-mensagem-erro>
+      <app-mensagem-erro
+        texto="Email inválido"
+        *ngIf="loginForm.get('email').errors?.email && loginForm.get('email').dirty"
+      ></app-mensagem-erro>
+      <div class="form-group">
+        <label>Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="senha"
+          placeholder="Informe sua senha"
+        >
+        <app-mensagem-erro
+        texto="Informe uma senha"
+        *ngIf="loginForm.get('senha').errors?.required && loginForm.get('senha').dirty"
+      ></app-mensagem-erro>
+      <app-mensagem-erro
+        texto="A senha deve conter no mínimo 6 caracteres"
+        *ngIf="loginForm.get('senha').errors?.minlength && loginForm.get('senha').dirty"
+      ></app-mensagem-erro>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary mt-1">Submit</button>
+    </fieldset>
+  </form>
+</div>
