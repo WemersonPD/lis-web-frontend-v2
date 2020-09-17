@@ -1,3 +1,4 @@
+import { InscreverSeModule } from './inscrever-se/inscrever-se.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,8 @@ import { CabecalhoModule } from './core/cabecalho/cabecalho.module';
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    CabecalhoModule
+    CabecalhoModule,
+    InscreverSeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

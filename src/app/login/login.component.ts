@@ -7,7 +7,6 @@ import { TokenService } from './../core/token/token.service';
 
 
 @Component({
-  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
