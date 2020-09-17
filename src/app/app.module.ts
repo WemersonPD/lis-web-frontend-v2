@@ -1,18 +1,20 @@
-import { LoginModule } from './login/login.module';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { LoginModule } from './login/login.module';
+import { CabecalhoModule } from './core/cabecalho/cabecalho.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    CabecalhoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

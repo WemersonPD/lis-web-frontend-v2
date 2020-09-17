@@ -1,7 +1,7 @@
 <div class="mt-5">
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" (submit)="login()">
     <fieldset class="container">
-      <legend>Login</legend>
+      <legend class="text-center">Login</legend>
       <div class="form-group">
         <label>Email</label>
         <input
@@ -37,7 +37,7 @@
         *ngIf="loginForm.get('senha').errors?.minlength && loginForm.get('senha').dirty"
       ></app-mensagem-erro>
       </div>
-      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary mt-1">Submit</button>
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success mt-1">Submit</button>
     </fieldset>
   </form>
 </div>
