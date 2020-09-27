@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000'
+  apiUrl: 'http://ezze.brazilsouth.cloudapp.azure.com/EzzeHomologWebApiV2/Api',
+  apiAuth:
+    'http://ezze.brazilsouth.cloudapp.azure.com/EzzeHomologWebApiV2/Token',
 };
 
 /*

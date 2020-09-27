@@ -6,17 +6,14 @@ import { Observable } from 'rxjs';
 import { Token } from '../token/token';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private apiAuth = environment.apiUrl + '/token';
+  private apiAuth = environment.apiAuth;
 
-  constructor(
-    private httpClient: HttpClient,
-  ) { }
+  constructor(private httpClient: HttpClient) {}
 
   public autenticar(email: string, senha: string): Observable<Token> {
     return this.httpClient.post<Token>(this.apiAuth, { email, senha });
   }
-
 }

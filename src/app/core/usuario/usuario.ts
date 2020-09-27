@@ -6,5 +6,4 @@ export class Usuario {
   email: string;
   telefone: string;
   senha: string;
-  tipo: number;
 }

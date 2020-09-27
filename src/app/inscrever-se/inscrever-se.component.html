@@ -1,137 +1,145 @@
-<form
-  [formGroup]="inscreverSeForm"
-  (submit)="increverSe()"
-  class="container"
->
-
+<form [formGroup]="inscreverSeForm" (submit)="increverSe()" class="container">
   <h1 class="text-center mb-5">INSCREVER-SE</h1>
   <div class="row">
-      <div class="form-group mb-5 col-12 col-md-6">
-        <label>CPF</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="cpf"
-          aria-describedby="CPF"
-          placeholder="Informe seu CPF"
-          maxlength='11'
-        >
-        <app-mensagem-erro
-          class="m-0"
-          texto="CPF inválido"
-          *ngIf="inscreverSeForm.get('cpf').errors?.required && inscreverSeForm.get('cpf').dirty"
-        ></app-mensagem-erro>
-
-      </div>
-      <div class="form-group mb-5 col-12 col-md-6">
-        <label>Nome</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="nome"
-          placeholder="Informe seu nome"
-          maxlength="100"
-        >
-        <app-mensagem-erro
+    <div class="form-group mb-5 col-12 col-md-6">
+      <label>CPF</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="cpf"
+        aria-describedby="CPF"
+        placeholder="Informe seu CPF"
+        maxlength="11"
+      />
+      <app-mensagem-erro
+        class="m-0"
+        texto="CPF inválido"
+        *ngIf="
+          inscreverSeForm.get('cpf').errors?.required &&
+          inscreverSeForm.get('cpf').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group mb-5 col-12 col-md-6">
+      <label>Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="nome"
+        placeholder="Informe seu nome"
+        maxlength="100"
+      />
+      <app-mensagem-erro
         texto="Nome inválido"
-        *ngIf="inscreverSeForm.get('nome').errors?.required && inscreverSeForm.get('nome').dirty"
-        ></app-mensagem-erro>
-      </div>
-      <div class="form-group mb-5 col-12 col-md-6">
-        <label>Data de nacimento</label>
-        <input
-          type="date"
-          class="form-control"
-          formControlName="dataNacimento"
-          placeholder="Informe sua data de nacimento"
-        >
-        <app-mensagem-erro
+        *ngIf="
+          inscreverSeForm.get('nome').errors?.required &&
+          inscreverSeForm.get('nome').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group mb-5 col-12 col-md-6">
+      <label>Data de nacimento</label>
+      <input
+        type="date"
+        class="form-control"
+        formControlName="dataNacimento"
+        placeholder="Informe sua data de nacimento"
+      />
+      <app-mensagem-erro
         texto="Data de nacimento inválida"
-        *ngIf="inscreverSeForm.get('dataNacimento').errors?.required && inscreverSeForm.get('dataNacimento').dirty"
-        ></app-mensagem-erro>
-      </div>
-      <div class="form-group mb-5 col-12 col-md-6">
-        <label>RG</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="rg"
-          placeholder="Informe seu RG"
-          maxlength="20"
-        >
-        <app-mensagem-erro
+        *ngIf="
+          inscreverSeForm.get('dataNacimento').errors?.required &&
+          inscreverSeForm.get('dataNacimento').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group mb-5 col-12 col-md-6">
+      <label>RG</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="rg"
+        placeholder="Informe seu RG"
+        maxlength="20"
+      />
+      <app-mensagem-erro
         texto="RG inválido"
-        *ngIf="inscreverSeForm.get('rg').errors?.required && inscreverSeForm.get('rg').dirty"
-        ></app-mensagem-erro>
-      </div>
-      <div class="form-group mb-5 col-12 col-md-6">
-        <label>Email</label>
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-          aria-describedby="emailHelp"
-          placeholder="Informe seu email"
-          maxlength="10"
-        >
-        <app-mensagem-erro
-          texto="Informe um email"
-          *ngIf="inscreverSeForm.get('email').errors?.required && inscreverSeForm.get('email').dirty"
-        ></app-mensagem-erro>
-        <app-mensagem-erro
-          texto="Email inválido"
-          *ngIf="inscreverSeForm.get('email').errors?.email && inscreverSeForm.get('email').dirty"
-        ></app-mensagem-erro>
-      </div>
-      <div class="form-group mb-5 col-12 col-md-6">
-        <label>Telefone</label>
-        <input
-          type="tel"
-          class="form-control"
-          formControlName="telefone"
-          placeholder="Informe seu telefone"
-          maxlength="20"
-        >
-        <app-mensagem-erro
+        *ngIf="
+          inscreverSeForm.get('rg').errors?.required &&
+          inscreverSeForm.get('rg').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group mb-5 col-12 col-md-6">
+      <label>Email</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        aria-describedby="emailHelp"
+        placeholder="Informe seu email"
+      />
+      <app-mensagem-erro
+        texto="Informe um email"
+        *ngIf="
+          inscreverSeForm.get('email').errors?.required &&
+          inscreverSeForm.get('email').dirty
+        "
+      ></app-mensagem-erro>
+      <app-mensagem-erro
+        texto="Email inválido"
+        *ngIf="
+          inscreverSeForm.get('email').errors?.email &&
+          inscreverSeForm.get('email').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group mb-5 col-12 col-md-6">
+      <label>Telefone</label>
+      <input
+        type="tel"
+        class="form-control"
+        formControlName="telefone"
+        placeholder="Informe seu telefone"
+        maxlength="20"
+      />
+      <app-mensagem-erro
         texto="Telefone inválido"
-        *ngIf="inscreverSeForm.get('telefone').errors?.required && inscreverSeForm.get('telefone').dirty"
-        ></app-mensagem-erro>
-      </div>
-      <div class="form-group mb-5 col-12 col-md-6">
-        <label>Senha</label>
-        <input
-          type="password"
-          class="form-control"
-          formControlName="senha"
-          placeholder="Informe sua senha"
-        >
-        <app-mensagem-erro
+        *ngIf="
+          inscreverSeForm.get('telefone').errors?.required &&
+          inscreverSeForm.get('telefone').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group mb-5 col-12 col-md-6">
+      <label>Senha</label>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="senha"
+        placeholder="Informe sua senha"
+      />
+      <app-mensagem-erro
         texto="Senha inválida"
-        *ngIf="inscreverSeForm.get('senha').errors?.required && inscreverSeForm.get('senha').dirty"
+        *ngIf="
+          inscreverSeForm.get('senha').errors?.required &&
+          inscreverSeForm.get('senha').dirty
+        "
       ></app-mensagem-erro>
       <app-mensagem-erro
         texto="A senha deve conter no mínimo 6 caracteres"
-        *ngIf="inscreverSeForm.get('senha').errors?.minlength && inscreverSeForm.get('senha').dirty"
+        *ngIf="
+          inscreverSeForm.get('senha').errors?.minlength &&
+          inscreverSeForm.get('senha').dirty
+        "
       ></app-mensagem-erro>
-      </div>
-      <div class="form-group col-12 col-md-6">
-        <label>Tipo</label>
-        <input
-          type="text"
-          class="form-control"
-          formControlName="tipo"
-          placeholder="Informe o tipo"
-        >
-        <app-mensagem-erro
-        texto="Tipo inválido"
-        *ngIf="inscreverSeForm.get('tipo').errors?.required && inscreverSeForm.get('tipo').dirty"
-      ></app-mensagem-erro>
-      </div>
-      <button
-        type="submit"
-        [disabled]="inscreverSeForm.invalid"
-        class="btn btn-success col-12 col-md-0"
-      >Inscrever-se</button>
+    </div>
+    <button
+      type="submit"
+      [disabled]="inscreverSeForm.invalid"
+      class="btn btn-success col-12 col-md-0"
+    >
+      Inscrever-se
+    </button>
   </div>
 </form>
-
