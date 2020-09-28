@@ -1,0 +1,41 @@
+<form
+  [formGroup]="seguroIndividualPlanoForm"
+  class="container"
+  (submit)="contratar()"
+>
+  <legend class="text-center">Plano de seguro individual</legend>
+  <div class="row">
+    <div class="form-group">
+      <label>Produto</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="Produto"
+        placeholder="Informe o código do produto"
+      />
+    </div>
+    <div formGroupName="Segurado">
+      <div class="form-group">
+        <label>Codigo</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="Codigo"
+          placeholder="Informe o código do segurado"
+        />
+      </div>
+      <div formGroupName="Endereco">
+        <div class="form-group">
+          <label>Endereco</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Endereco"
+            placeholder="Informe o endereco do segurado"
+          />
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mt-3 col-12">Login</button>
+  </div>
+</form>

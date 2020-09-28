@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="text-center mb-5">Upload de arquivos</h1>
+  <form class="row" [formGroup]="uploadArquivoForm" (submit)="upload()">
+    <div class="col-md-6 text-center">
+      <input
+        type="file"
+        formControlName="arquivo"
+        (change)="arquivo = $event.target.files[0]"
+      />
+    </div>
+    <button
+      [disabled]="uploadArquivoForm.invalid"
+      class="btn btn-success col-md-6 mt-4 mt-md-0"
+      type="submit"
+    >
+      Enviar arquivo
+    </button>
+  </form>
+</div>
