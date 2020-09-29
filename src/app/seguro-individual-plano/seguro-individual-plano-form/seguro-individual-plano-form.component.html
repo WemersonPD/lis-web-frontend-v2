@@ -186,7 +186,7 @@
         ></app-mensagem-erro>
       </div>
       <div class="form-group col-4 mb-5">
-        <label>Nome do segurado<span class="text-danger">*</span></label>
+        <label>Nome do segurado <span class="text-danger">*</span></label>
         <input
           type="text"
           class="form-control"
@@ -210,9 +210,8 @@
       </div>
       <div class="form-group col-4 mb-5">
         <label
-          >Data de nascimento do segurado<span class="text-danger"
-            >*</span
-          ></label
+          >Data de nascimento do segurado
+          <span class="text-danger">*</span></label
         >
         <input
           type="date"
@@ -332,10 +331,46 @@
           placeholder="Informe a data de nascimento do conjuge"
         />
       </div>
+      <div class="form-group col-4 mb-5">
+        <label>Email do segurado</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="Email"
+          placeholder="Informe a data de nascimento do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Telefone residencial do segurado</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="TelefoneResidencial"
+          placeholder="Informe o telefone residencial do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Telefone comercial do segurado</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="TelefoneComercial"
+          placeholder="Informe o telefone comercial do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Telefone celular do segurado</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="TelefoneCelular"
+          placeholder="Informe o telefone celular do segurado"
+        />
+      </div>
       <div formGroupName="Endereco" class="col-12 row">
         <h3 class="col-12 text-center my-5">Endereço do segurado</h3>
         <div class="form-group col-4 mb-5">
-          <label>Endereço do segurado</label>
+          <label>Endereço do segurado <span class="text-danger">*</span></label>
           <input
             type="text"
             class="form-control"
@@ -360,7 +395,10 @@
           ></app-mensagem-erro>
         </div>
         <div class="form-group col-4 mb-5">
-          <label>Número de endereço do segurado</label>
+          <label
+            >Número de endereço do segurado
+            <span class="text-danger">*</span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -385,7 +423,10 @@
           ></app-mensagem-erro>
         </div>
         <div class="form-group col-4 mb-5">
-          <label>Complemento de endereço do segurado</label>
+          <label
+            >Complemento de endereço do segurado
+            <span class="text-danger">*</span></label
+          >
           <input
             type="text"
             class="form-control"
@@ -403,7 +444,7 @@
           ></app-mensagem-erro>
         </div>
         <div class="form-group col-4 mb-5">
-          <label>Bairro do segurado</label>
+          <label>Bairro do segurado <span class="text-danger">*</span></label>
           <input
             type="text"
             class="form-control"
@@ -411,7 +452,7 @@
             placeholder="Informe o Bairro do segurado"
           />
           <app-mensagem-erro
-            texto="O Bairro do segurado é inválido"
+            texto="O bairro do segurado é inválido"
             *ngIf="
               seguroIndividualPlanoForm.get('Segurado.Endereco.Bairro').errors
                 ?.required &&
@@ -419,7 +460,7 @@
             "
           ></app-mensagem-erro>
           <app-mensagem-erro
-            texto="O Bairro do segurado não deve conter mais de 25 caracteres"
+            texto="O bairro do segurado não deve conter mais de 25 caracteres"
             *ngIf="
               seguroIndividualPlanoForm.get('Segurado.Endereco.Bairro').errors
                 ?.maxlength &&
@@ -427,9 +468,156 @@
             "
           ></app-mensagem-erro>
         </div>
+        <div class="form-group col-4 mb-5">
+          <label>Cidade do segurado <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Cidade"
+            placeholder="Informe a cidade do segurado"
+          />
+          <app-mensagem-erro
+            texto="A cidade do segurado é inválida"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Cidade').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Cidade').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="A cidade do segurado não deve conter mais de 25 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Cidade').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Cidade').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label>UF do segurado <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="UF"
+            placeholder="Informe o UF do segurado"
+          />
+          <app-mensagem-erro
+            texto="O UF do segurado é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.UF').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.UF').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="O UF do segurado não deve conter mais de 2 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.UF').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.UF').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label>CEP do segurado <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="CEP"
+            placeholder="Informe o CEP do segurado"
+          />
+          <app-mensagem-erro
+            texto="O CEP do segurado é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.CEP').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.CEP').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="O CEP do segurado não deve conter mais de 8 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.CEP').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.CEP').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+      </div>
+      <div formGroupName="Beneficiarios" class="col-12">
+        <h3 class="text-center col-12 my-5">Benificiário</h3>
+        <div class="form-group col-4 mb-5">
+          <label>Nome do benificiário <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Nome"
+            placeholder="Informe o nome do benificiário"
+          />
+          <app-mensagem-erro
+            texto="O nome do benificiário é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Nome')
+                .errors?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Nome').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="O Nome não deve conter mais de 50 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Nome')
+                .dirty &&
+              seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Nome')
+                .errors?.maxlength
+            "
+          ></app-mensagem-erro>
+        </div>
+
+        <div class="form-group col-4 mb-5">
+          <label
+            >Parentesco do benificiário
+            <span class="text-danger">*</span></label
+          >
+          <input
+            type="number"
+            class="form-control"
+            formControlName="Parentesco"
+            placeholder="Informe o parentesco do benificiário"
+          />
+          <app-mensagem-erro
+            texto="O parentesco do benificiário é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Parentesco')
+                .errors?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Parentesco')
+                .dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label
+            >Percentual do benificiário
+            <span class="text-danger">*</span></label
+          >
+          <input
+            type="number"
+            class="form-control"
+            formControlName="Percentual"
+            placeholder="Informe o percentual do benificiário"
+          />
+          <app-mensagem-erro
+            texto="O Percentual do benificiário é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Percentual')
+                .errors?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Percentual')
+                .dirty
+            "
+          ></app-mensagem-erro>
+        </div>
       </div>
     </div>
     <!-- Segurado até aqui -->
-    <button type="submit" class="btn btn-success mt-3 col-12">Login</button>
+    <button type="submit" class="btn btn-success mt-3 col-12">Contratar</button>
   </div>
 </form>
