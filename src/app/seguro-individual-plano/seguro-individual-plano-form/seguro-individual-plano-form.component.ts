@@ -39,7 +39,7 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
         Genero: ['', [Validators.required]],
         FonteRenda: ['', []],
         EstadoCivil: ['', [Validators.required]],
-        NomeConjuge: ['', [Validators.required]],
+        NomeConjuge: [''],
         DataNascimentoConjuge: ['', [Validators.required]],
         Endereco: this.formBuilder.group({
           Endereco: ['', [Validators.required, Validators.maxLength(50)]],
