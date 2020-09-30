@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   templateUrl: './seguro-individual-plano-form.component.html',
@@ -54,11 +54,7 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
         TelefoneResidencial: ['', []],
         TelefoneComercial: ['', []],
         TelefoneCelular: ['', []],
-        Beneficiarios: this.formBuilder.group({
-          Nome: ['', [Validators.required, Validators.maxLength(50)]],
-          Parentesco: ['', [Validators.required]],
-          Percentual: ['', [Validators.required]],
-        }),
+        Beneficiarios: this.formBuilder.array([]),
         Agregados: this.formBuilder.group({
           Cpf: [
             '',
@@ -81,5 +77,26 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
   contratar() {
     const form = this.seguroIndividualPlanoForm.getRawValue();
     console.log(form);
+  }
+
+  addBeneficiario(): void {
+    const segurado = this.getSegurado();
+    const beneficiario = segurado.controls.Beneficiarios as FormArray;
+    beneficiario.push(
+      this.formBuilder.group({
+        Nome: ['', [Validators.required, Validators.maxLength(50)]],
+        Parentesco: ['', [Validators.required]],
+        Percentual: ['', [Validators.required]],
+      })
+    );
+  }
+  removerBeneficiario() {
+    const segurado = this.getSegurado();
+    const beneficiario = segurado.controls.Beneficiarios as FormArray;
+    beneficiario.removeAt(beneficiario.length - 1);
+  }
+
+  getSegurado(): FormGroup {
+    return this.seguroIndividualPlanoForm.controls.Segurado as FormGroup;
   }
 }
