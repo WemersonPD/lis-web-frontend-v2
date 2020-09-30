@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   templateUrl: './seguro-individual-plano-form.component.html',
@@ -80,7 +86,7 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
   }
 
   addBeneficiario(): void {
-    const segurado = this.getSegurado();
+    const segurado = this.Segurado;
     const beneficiario = segurado.controls.Beneficiarios as FormArray;
     beneficiario.push(
       this.formBuilder.group({
@@ -91,12 +97,20 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
     );
   }
   removerBeneficiario() {
-    const segurado = this.getSegurado();
+    const segurado = this.Segurado;
     const beneficiario = segurado.controls.Beneficiarios as FormArray;
     beneficiario.removeAt(beneficiario.length - 1);
   }
 
-  getSegurado(): FormGroup {
+  get Segurado(): FormGroup {
     return this.seguroIndividualPlanoForm.controls.Segurado as FormGroup;
+  }
+
+  get Beneficiarios() {
+    const segurado = this.Segurado;
+    return segurado.controls.Beneficiarios as FormArray;
+  }
+  log(i) {
+    console.log(i);
   }
 }
