@@ -563,7 +563,7 @@
           </button>
         </div>
 
-        <ng-container
+        <div
           formArrayName="Beneficiarios"
           *ngFor="let beneficiario of Beneficiarios.controls; index as i"
           class="col-12 row"
@@ -605,15 +605,13 @@
                 formControlName="Parentesco"
                 placeholder="Informe o parentesco do benificiário"
               />
-              <!-- <app-mensagem-erro
+              <app-mensagem-erro
                 texto="O parentesco do benificiário é inválido"
                 *ngIf="
-                  seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Parentesco')
-                    .errors?.required &&
-                  seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Parentesco')
-                    .dirty
+                  beneficiario.get('Parentesco').errors?.required &&
+                  beneficiario.get('Parentesco').dirty
                 "
-              ></app-mensagem-erro> -->
+              ></app-mensagem-erro>
             </div>
             <div class="form-group col-4 mb-5">
               <label
@@ -626,27 +624,36 @@
                 formControlName="Percentual"
                 placeholder="Informe o percentual do benificiário"
               />
-              <!-- <app-mensagem-erro
+              <app-mensagem-erro
                 texto="O Percentual do benificiário é inválido"
                 *ngIf="
-                  seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Percentual')
-                    .errors?.required &&
-                  seguroIndividualPlanoForm.get('Segurado.Beneficiarios.Percentual')
-                    .dirty
+                  beneficiario.get('Percentual').errors?.required &&
+                  beneficiario.get('Percentual').dirty
                 "
-              ></app-mensagem-erro> -->
+              ></app-mensagem-erro>
             </div>
           </div>
-        </ng-container>
+        </div>
+        <div class="col-12 row">
+          <h3 class="mr-2 text-center col-12 mt-5">Agregado do segurado</h3>
+          <div class="col-12 d-flex justify-content-center mb-5">
+            <button
+              (click)="addAgregado()"
+              type="button"
+              class="btn btn-primary mr-2"
+            >
+              Adicionar
+            </button>
+            <button
+              (click)="removerBeneficiario()"
+              type="button"
+              class="btn btn-danger"
+            >
+              Remover
+            </button>
+          </div>
+        </div>
       </div>
-      <!-- <div formArrayName="Beneficiarios" class="col-12 row">
-
-
-
-      </div>
-      <div formGroupName="Agregados col-12 row">
-        <h3 class="text-center col-12">Agregados do segurado</h3>
-      </div> -->
     </div>
     <!-- Segurado até aqui -->
     <button type="submit" class="btn btn-success mt-3 col-12">Contratar</button>

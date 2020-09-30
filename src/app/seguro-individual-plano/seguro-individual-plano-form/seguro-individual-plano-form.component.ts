@@ -61,15 +61,7 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
         TelefoneComercial: ['', []],
         TelefoneCelular: ['', []],
         Beneficiarios: this.formBuilder.array([]),
-        Agregados: this.formBuilder.group({
-          Cpf: [
-            '',
-            [Validators.required, Validators.min(11), Validators.max(11)],
-          ],
-          Nome: ['', [Validators.required, Validators.maxLength(50)]],
-          DataNascimento: ['', [Validators.required]],
-          AgregadoTipo: ['', []],
-        }),
+        Agregados: this.formBuilder.array([]),
       }),
       AtividadePrincipal: ['', []],
       FormaPagamento: ['', [Validators.required]],
@@ -86,19 +78,17 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
   }
 
   addBeneficiario(): void {
-    const segurado = this.Segurado;
-    const beneficiario = segurado.controls.Beneficiarios as FormArray;
-    beneficiario.push(
-      this.formBuilder.group({
-        Nome: ['', [Validators.required, Validators.maxLength(50)]],
-        Parentesco: ['', [Validators.required]],
-        Percentual: ['', [Validators.required]],
-      })
-    );
+    const beneficiarios = this.Beneficiarios;
+    const beneficiario = this.formBuilder.group({
+      Nome: ['', [Validators.required, Validators.maxLength(50)]],
+      Parentesco: ['', [Validators.required]],
+      Percentual: ['', [Validators.required]],
+    });
+    beneficiarios.push(beneficiario);
   }
+
   removerBeneficiario() {
-    const segurado = this.Segurado;
-    const beneficiario = segurado.controls.Beneficiarios as FormArray;
+    const beneficiario = this.Beneficiarios;
     beneficiario.removeAt(beneficiario.length - 1);
   }
 
@@ -106,11 +96,34 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
     return this.seguroIndividualPlanoForm.controls.Segurado as FormGroup;
   }
 
-  get Beneficiarios() {
+  get Beneficiarios(): FormArray {
     const segurado = this.Segurado;
     return segurado.controls.Beneficiarios as FormArray;
   }
+
   log(i) {
     console.log(i);
+  }
+
+  get Agregados(): FormArray {
+    const segurado = this.Segurado;
+    return segurado.controls.Agregados as FormArray;
+  }
+
+  addAgregado(): void {
+    const agregados = this.Agregados;
+    const agregado = this.formBuilder.group({
+      Cpf: ['', [Validators.required, Validators.min(11), Validators.max(11)]],
+      Nome: ['', [Validators.required, Validators.maxLength(50)]],
+      DataNascimento: ['', [Validators.required]],
+      AgregadoTipo: ['', []],
+    });
+
+    agregados.push(agregado);
+  }
+
+  removerAgregado(): void {
+    const agregados = this.Agregados;
+    agregados.removeAt(agregados.length - 1);
   }
 }
