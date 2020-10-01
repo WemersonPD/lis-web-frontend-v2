@@ -113,7 +113,14 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
   addAgregado(): void {
     const agregados = this.Agregados;
     const agregado = this.formBuilder.group({
-      Cpf: ['', [Validators.required, Validators.min(11), Validators.max(11)]],
+      Cpf: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(11),
+          Validators.maxLength(11),
+        ],
+      ],
       Nome: ['', [Validators.required, Validators.maxLength(50)]],
       DataNascimento: ['', [Validators.required]],
       AgregadoTipo: ['', []],

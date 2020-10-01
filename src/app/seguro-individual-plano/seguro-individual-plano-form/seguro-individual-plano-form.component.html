@@ -634,23 +634,115 @@
             </div>
           </div>
         </div>
-        <div class="col-12 row">
-          <h3 class="mr-2 text-center col-12 mt-5">Agregado do segurado</h3>
-          <div class="col-12 d-flex justify-content-center mb-5">
-            <button
-              (click)="addAgregado()"
-              type="button"
-              class="btn btn-primary mr-2"
-            >
-              Adicionar
-            </button>
-            <button
-              (click)="removerBeneficiario()"
-              type="button"
-              class="btn btn-danger"
-            >
-              Remover
-            </button>
+      </div>
+      <div class="col-12 row">
+        <h3 class="mr-2 text-center col-12 mt-5">Agregado do segurado</h3>
+        <div class="col-12 d-flex justify-content-center mb-5">
+          <button
+            (click)="addAgregado()"
+            type="button"
+            class="btn btn-primary mr-2"
+          >
+            Adicionar
+          </button>
+          <button
+            (click)="removerAgregado()"
+            type="button"
+            class="btn btn-danger"
+          >
+            Remover
+          </button>
+        </div>
+
+        <div
+          formArrayName="Agregados"
+          *ngFor="let agregado of Agregados.controls; index as i"
+          class="col-12 row"
+        >
+          <div class="col-12 row" [formGroupName]="i">
+            <div class="form-group col-6 mb-5">
+              <label>CPF do agregado <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Cpf"
+                placeholder="Informe o CPF do agregado"
+              />
+              <app-mensagem-erro
+                texto="O CPF é inválido"
+                *ngIf="
+                  agregado.get('Cpf').errors?.required &&
+                  agregado.get('Cpf').dirty
+                "
+              ></app-mensagem-erro>
+              <app-mensagem-erro
+                texto="O CPF deve conter 11 caracteres"
+                *ngIf="
+                  agregado.get('Cpf').dirty &&
+                  (agregado.get('Cpf').errors?.minlength ||
+                    agregado.get('Cpf').errors?.maxlength)
+                "
+              ></app-mensagem-erro>
+            </div>
+            <div class="form-group col-6 mb-5">
+              <label>Nome do agregado <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Nome"
+                placeholder="Informe o nome do agregado"
+              />
+              <app-mensagem-erro
+                texto="O nome do agregado é inválido"
+                *ngIf="
+                  agregado.get('Nome').errors?.required &&
+                  agregado.get('Nome').dirty
+                "
+              ></app-mensagem-erro>
+              <app-mensagem-erro
+                texto="O nome não deve conter mais de 50 caracteres"
+                *ngIf="
+                  agregado.get('Nome').dirty &&
+                  agregado.get('Nome').errors?.maxlength
+                "
+              ></app-mensagem-erro>
+            </div>
+            <div class="form-group col-6 mb-5">
+              <label
+                >Data de nascimento do agregado
+                <span class="text-danger">*</span></label
+              >
+              <input
+                type="date"
+                class="form-control"
+                formControlName="DataNascimento"
+                placeholder="Informe a data de nascimento do segurado"
+              />
+              <app-mensagem-erro
+                texto="A data de nascimento do segurado é inválida"
+                *ngIf="
+                  agregado.get('DataNascimento').errors?.required &&
+                  agregado.get('DataNascimento').dirty
+                "
+              ></app-mensagem-erro>
+            </div>
+            <div class="form-group col-6 mb-5">
+              <label>Tipo do agregado <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="AgregadoTipo"
+                placeholder="Informe o tipo do agregado"
+              />
+              <app-mensagem-erro
+                texto="O CPF é inválido"
+                *ngIf="
+                  agregado.get('AgregadoTipo').errors?.required &&
+                  agregado.get('AgregadoTipo').dirty
+                "
+              ></app-mensagem-erro>
+            </div>
+            <hr class="col-12 mb-5" />
           </div>
         </div>
       </div>
