@@ -5,7 +5,7 @@
       <input
         type="file"
         formControlName="arquivo"
-        (change)="arquivo = $event.target.files[0]"
+        (change)="onFileChange($event)"
       />
     </div>
     <button

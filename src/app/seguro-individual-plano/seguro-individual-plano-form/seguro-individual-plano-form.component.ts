@@ -6,13 +6,20 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { SeguroIndividualPlanoService } from '../seguro-individual-plano.service';
 
 @Component({
   templateUrl: './seguro-individual-plano-form.component.html',
 })
 export class SeguroIndividualPlanoFormComponent implements OnInit {
   public seguroIndividualPlanoForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private seguroIndividualPlanoService: SeguroIndividualPlanoService
+  ) {}
+
   ngOnInit(): void {
     this.seguroIndividualPlanoForm = this.formBuilder.group({
       Produto: ['', [Validators.required]],
@@ -111,6 +118,15 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
 
   contratar() {
     const form = this.seguroIndividualPlanoForm.getRawValue();
+    this.seguroIndividualPlanoService.contratar(form).subscribe(
+      (resp) => {
+        Swal.fire('Contratado com sucesso', '', 'success');
+        console.log(resp);
+      },
+      (err) => {
+        Swal.fire('Erro ao contratar', err, 'error');
+      }
+    );
     console.log(form);
   }
 
