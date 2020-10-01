@@ -69,7 +69,9 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
         Funcional: ['', []],
         Matricula: ['', [Validators.required]],
       }),
-      Debito: ['', []],
+      Debito: this.formBuilder.group({
+        Banco: [''],
+      }),
       DPS: ['', []],
       Origem: ['', []],
     });

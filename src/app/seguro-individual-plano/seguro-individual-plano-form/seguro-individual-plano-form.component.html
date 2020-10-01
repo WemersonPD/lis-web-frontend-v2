@@ -801,7 +801,7 @@
           </div>
           <div class="form-group col-6 my-5">
             <label
-              >Matricula do consignado <span class="text-danger">*</span></label
+              >Matrícula do consignado <span class="text-danger">*</span></label
             >
             <input
               type="text"
@@ -809,12 +809,17 @@
               formControlName="Matricula"
               placeholder="Informe o número da matrícula/benefício"
             />
+            <app-mensagem-erro
+              texto="A Matrícula é inválida"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Consignado.Matricula').errors
+                  ?.required &&
+                seguroIndividualPlanoForm.get('Consignado.Matricula').dirty
+              "
+            ></app-mensagem-erro>
           </div>
         </div>
       </div>
-      <!-- <div *ngIf="seguroIndividualPlanoForm.get('FormaPagamento').value == 4">
-        3
-      </div> -->
     </div>
     <button type="submit" class="btn btn-success mt-3 col-12">Contratar</button>
   </div>
