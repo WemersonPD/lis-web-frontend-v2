@@ -768,8 +768,145 @@
         <option value="4">Consignado INSS</option>
       </select>
       <div
+        class="col-12 row"
         *ngIf="seguroIndividualPlanoForm.get('FormaPagamento').value == 1"
-      ></div>
+      >
+        <div formGroupName="Debito" class="col-12 row">
+          <h3 class="text-center col-12 mt-5">Debito</h3>
+          <div class="form-group col-4 my-5">
+            <label>Número do banco <span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Banco"
+              placeholder="Informe o número do banco"
+            />
+            <app-mensagem-erro
+              texto="O número do banco é inválido"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.Banco').errors
+                  ?.required &&
+                seguroIndividualPlanoForm.get('Debito.Banco').dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O número do banco deve conter 3 caracters"
+              *ngIf="
+                (seguroIndividualPlanoForm.get('Debito.Banco').errors
+                  ?.maxlength ||
+                  seguroIndividualPlanoForm.get('Debito.Banco').errors
+                    ?.minlength) &&
+                seguroIndividualPlanoForm.get('Debito.Banco').dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+          <div class="form-group col-4 my-5">
+            <label>Código da agência <span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Agencia"
+              placeholder="Informe o código da agência"
+            />
+            <app-mensagem-erro
+              texto="O código da agência é inválida"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.Agencia').errors
+                  ?.required &&
+                seguroIndividualPlanoForm.get('Debito.Agencia').dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O código da agência deve conter 4 caracters"
+              *ngIf="
+                (seguroIndividualPlanoForm.get('Debito.Agencia').errors
+                  ?.maxlength ||
+                  seguroIndividualPlanoForm.get('Debito.Agencia').errors
+                    ?.minlength) &&
+                seguroIndividualPlanoForm.get('Debito.Agencia').dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+          <div class="form-group col-4 my-5">
+            <label>Dígito verificador da agência</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="DigitoVerificadorAgencia"
+              placeholder="Informe o dígito verificador da agência"
+            />
+          </div>
+          <div class="form-group col-4 my-5">
+            <label
+              >Número da conta corrente sem o dígito
+              <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Conta"
+              placeholder="Informe o número da conta corrente sem o dígito"
+            />
+            <app-mensagem-erro
+              texto="O número da conta corrente sem o dígito é inválida"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.Conta').errors
+                  ?.required &&
+                seguroIndividualPlanoForm.get('Debito.Conta').dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O número da conta deve conter 4 caracters"
+              *ngIf="
+                (seguroIndividualPlanoForm.get('Debito.Conta').errors
+                  ?.maxlength ||
+                  seguroIndividualPlanoForm.get('Debito.Conta').errors
+                    ?.minlength) &&
+                seguroIndividualPlanoForm.get('Debito.Conta').dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+          <div class="form-group col-4 my-5">
+            <label
+              >Digito verificador da Conta corrente
+              <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="DigitoVerificadorConta"
+              placeholder="Informe o digito verificador da conta corrente"
+            />
+            <app-mensagem-erro
+              texto="O digito verificador da conta corrente é inválido"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .errors?.required &&
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O digito verificador deve conter no mínimo 1 caractere"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .errors?.minlength &&
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O digito verificador deve conter no máximo 2 caracteres"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .errors?.maxlength &&
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+        </div>
+      </div>
       <div
         *ngIf="
           seguroIndividualPlanoForm.get('FormaPagamento').value == 2 ||
@@ -788,7 +925,6 @@
         <ng-template #inss>
           <h3 class="text-center col-12 mt-5">Consignado INSS</h3>
         </ng-template>
-        <div formGroupName="Consignado" class="col-12 row"></div>
         <div formGroupName="Consignado" class="col-12 row">
           <div class="form-group col-6 my-5">
             <label>Funcional do consignado</label>

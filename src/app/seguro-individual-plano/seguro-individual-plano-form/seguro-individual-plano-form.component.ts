@@ -70,7 +70,39 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
         Matricula: ['', [Validators.required]],
       }),
       Debito: this.formBuilder.group({
-        Banco: [''],
+        Banco: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(3),
+          ],
+        ],
+        Agencia: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(4),
+            Validators.maxLength(4),
+          ],
+        ],
+        DigitoVerificadorAgencia: ['', []],
+        Conta: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(4),
+            Validators.maxLength(4),
+          ],
+        ],
+        DigitoVerificadorConta: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(1),
+            Validators.maxLength(2),
+          ],
+        ],
       }),
       DPS: ['', []],
       Origem: ['', []],
