@@ -104,7 +104,7 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
           ],
         ],
       }),
-      DPS: ['', []],
+      DPS: this.formBuilder.array([]),
       Origem: ['', []],
     });
   }
@@ -169,5 +169,24 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
   removerAgregado(): void {
     const agregados = this.Agregados;
     agregados.removeAt(agregados.length - 1);
+  }
+
+  get DPS(): FormArray {
+    return this.seguroIndividualPlanoForm.controls.DPS as FormArray;
+  }
+
+  addDPS(): void {
+    const dps = this.DPS;
+    const group = this.formBuilder.group({
+      Codigo: [''],
+      Resposta: [''],
+      Texto: [''],
+    });
+    dps.push(group);
+  }
+
+  removerDPS(): void {
+    const dps = this.DPS;
+    dps.removeAt(this.DPS.length - 1);
   }
 }

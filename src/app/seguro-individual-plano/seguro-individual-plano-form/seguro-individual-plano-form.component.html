@@ -140,6 +140,15 @@
         placeholder="Informe a atividade principal"
       />
     </div>
+    <div class="form-group col-4 mb-5">
+      <label>Código de origem da proposta</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="Origem"
+        placeholder="Informe o código de origem da proposta"
+      />
+    </div>
     <!-- Segurado apartir daqui -->
     <div formGroupName="Segurado" class="col-12 row">
       <h3 class="text-center col-12 mb-5">Segurado</h3>
@@ -953,6 +962,53 @@
                 seguroIndividualPlanoForm.get('Consignado.Matricula').dirty
               "
             ></app-mensagem-erro>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 row">
+        <h3 class="mr-2 text-center col-12 mt-5">DPS</h3>
+        <div class="col-12 d-flex justify-content-center mb-5">
+          <button (click)="addDPS()" type="button" class="btn btn-primary mr-2">
+            Adicionar
+          </button>
+          <button (click)="removerDPS()" type="button" class="btn btn-danger">
+            Remover
+          </button>
+        </div>
+      </div>
+
+      <div
+        formArrayName="DPS"
+        *ngFor="let dps of DPS.controls; index as i"
+        class="col-12 row"
+      >
+        <div [formGroupName]="i" class="col-12 row">
+          <div class="form-group col-4 mb-5">
+            <label>Código da DPS</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="Codigo"
+              placeholder="Informe o código da DPS"
+            />
+          </div>
+          <div class="form-group col-4 mb-5">
+            <label>Resposta</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Resposta"
+              placeholder="Informe a resposta"
+            />
+          </div>
+          <div class="form-group col-4 mb-5">
+            <label>Explicação da reposta</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Texto"
+              placeholder="Informe a explicação da reposta"
+            />
           </div>
         </div>
       </div>
