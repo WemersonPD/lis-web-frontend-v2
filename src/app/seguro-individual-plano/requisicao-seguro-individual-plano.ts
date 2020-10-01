@@ -1,13 +1,3 @@
-import { Type } from 'class-transformer';
-import {
-  IsArray,
-  IsNotEmpty,
-  IsOptional,
-  Length,
-  MaxLength,
-  ValidateNested,
-} from 'class-validator';
-
 class _EnderecoDTO {
   Endereco: string;
   Numero: string;

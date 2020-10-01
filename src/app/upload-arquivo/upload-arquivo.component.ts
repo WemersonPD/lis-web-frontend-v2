@@ -50,7 +50,78 @@ export class UploadArquivoComponent implements OnInit {
       }, {});
 
       const dataString = JSON.stringify(jsonData);
-      this.segurosIndividuais = jsonData['Planilha1'];
+      console.log(jsonData);
+      const seguroIndividualArray = jsonData['Planilha1'];
+      // for (const seguroIndividualAtual of seguroIndividualArray) {
+      //   let seguroIndividual: RequisicaoSeguroIndividualPlano = {
+      //     Produto: seguroIndividualAtual.Produto,
+      //     Plano: seguroIndividualAtual.Plano,
+      //     Capital: seguroIndividualAtual.Capital,
+      //     Corretor: seguroIndividualAtual.Corretor,
+      //     DataInicioVigencia: seguroIndividualAtual.DataInicioVigencia,
+      //     DataFimVigencia: seguroIndividualAtual.DataFimVigencia,
+      //     FrequenciaEmissao: seguroIndividualAtual.FrequenciaEmissao,
+      //     TipoVencimento: seguroIndividualAtual.TipoVencimento,
+      //     DiaVencimento: seguroIndividualAtual.DiaVencimento,
+      //     DiasUteisVencimento: seguroIndividualAtual.DiasUteisVencimento,
+      //     Segurado: {
+      //       Codigo: seguroIndividualAtual.CodigoSegurado,
+      //       QRCode: seguroIndividualAtual.QRCodeSegurado,
+      //       Cpf: seguroIndividualAtual.CpfSegurado,
+      //       Nome: seguroIndividualAtual.NomeSegurado,
+      //       DataNacimento: seguroIndividualAtual.DataNacimentoSegurado,
+      //       Capital: seguroIndividualAtual.CapitalSegurado,
+      //       Profissao: seguroIndividualAtual.ProfissaoSegurado,
+      //       FaixaSalarial: seguroIndividualAtual.FaixaSalarialSegurado,
+      //       Genero: seguroIndividualAtual.GeneroSegurado,
+      //       FonteRenda: seguroIndividualAtual.FonteRendaSegurado,
+      //       EstadoCivil: seguroIndividualAtual.EstadoCivilSegurado,
+      //       NomeConjuge: seguroIndividualAtual.NomeConjugeSegurado,
+      //       DataNascimentoConjuge:
+      //         seguroIndividualAtual.DataNascimentoConjugeSegurado,
+      //       Endereco: {
+      //         Endereco: seguroIndividualAtual.EnderecoSegurado,
+      //         Numero: seguroIndividualAtual.NumeroSegurado,
+      //         Complemento: seguroIndividualAtual.ComplementoSegurado,
+      //         Bairro: seguroIndividualAtual.BairroSegurado,
+      //         Cidade: seguroIndividualAtual.CidadeSegurado,
+      //         UF: seguroIndividualAtual.UFSegurado,
+      //         CEP: seguroIndividualAtual.CEPSegurado,
+      //       },
+      //       Email: seguroIndividualAtual.EmailSegurado,
+      //       TelefoneResidencial: seguroIndividualAtual.TelefoneResidencialSegurado,
+      //       TelefoneComercial: seguroIndividualAtual.TelefoneComercialSegurado,
+      //       TelefoneCelular: seguroIndividualAtual.TelefoneCelularSegurado,
+      //       Beneficiarios: {
+      //         Nome: seguroIndividualAtual.NomeBeneficiariosSegurado,
+
+      //       },
+      //       Agregados: seguroIndividualAtual.AgregadosSegurado,
+
+      //     },
+      //   };
+
+      //       Plano: number;
+      // Capital?: number;
+      // Corretor: number;
+      // DataInicioVigencia: Date;
+      // DataFimVigencia?: Date;
+      // FrequenciaEmissao: number;
+      // TipoVencimento?: number;
+      // DiaVencimento?: number;
+      // DiasUteisVencimento?: number;
+      // Segurado: _SeguradoDto;
+      // AtividadePrincipal?: number;
+      // FormaPagamento: number;
+      // Consignado?: _Consignado;
+      // Debito?: _Debito;
+      // DPS?: _DPS[];
+      // Origem?: number;
+
+      //   console.log(seguroIndividual);
+      // }
+      // this.segurosIndividuais = seguroIndividualArray;
+      console.log(this.segurosIndividuais);
     };
     reader.readAsBinaryString(file);
   }
