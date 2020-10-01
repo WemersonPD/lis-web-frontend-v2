@@ -131,6 +131,15 @@
         placeholder="Informe os Dias úteis de vencimento"
       />
     </div>
+    <div class="form-group col-4 mb-5">
+      <label>Atividade Principal</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="AtividadePrincipal"
+        placeholder="Informe a atividade principal"
+      />
+    </div>
     <!-- Segurado apartir daqui -->
     <div formGroupName="Segurado" class="col-12 row">
       <h3 class="text-center col-12 mb-5">Segurado</h3>
@@ -742,12 +751,71 @@
                 "
               ></app-mensagem-erro>
             </div>
-            <hr class="col-12 mb-5" />
           </div>
+          <hr class="col-12 mb-5" />
         </div>
       </div>
     </div>
     <!-- Segurado até aqui -->
+    <!-- Forma de pagamento aqui -->
+    <div class="form-group col-12 row mt-5">
+      <h3 class="col-12 text-center">Forma de pagamento</h3>
+      <label class="col-12 text-center">Selecione a forma de pagamento</label>
+      <select class="form-control" formControlName="FormaPagamento">
+        <option value="0" [selected]="true">Boleto</option>
+        <option value="1">Débito em conta</option>
+        <option value="2">Consignado</option>
+        <option value="4">Consignado INSS</option>
+      </select>
+      <div
+        *ngIf="seguroIndividualPlanoForm.get('FormaPagamento').value == 1"
+      ></div>
+      <div
+        *ngIf="
+          seguroIndividualPlanoForm.get('FormaPagamento').value == 2 ||
+          seguroIndividualPlanoForm.get('FormaPagamento').value == 4
+        "
+        class="col-12 row"
+      >
+        <ng-container
+          *ngIf="
+            seguroIndividualPlanoForm.get('FormaPagamento').value == 2;
+            else inss
+          "
+        >
+          <h3 class="text-center col-12 mt-5">Consignado</h3>
+        </ng-container>
+        <ng-template #inss>
+          <h3 class="text-center col-12 mt-5">Consignado INSS</h3>
+        </ng-template>
+        <div formGroupName="Consignado" class="col-12 row"></div>
+        <div formGroupName="Consignado" class="col-12 row">
+          <div class="form-group col-6 my-5">
+            <label>Funcional do consignado</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="Funcional"
+              placeholder="Informe o funcional do consignado"
+            />
+          </div>
+          <div class="form-group col-6 my-5">
+            <label
+              >Matricula do consignado <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Matricula"
+              placeholder="Informe o número da matrícula/benefício"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- <div *ngIf="seguroIndividualPlanoForm.get('FormaPagamento').value == 4">
+        3
+      </div> -->
+    </div>
     <button type="submit" class="btn btn-success mt-3 col-12">Contratar</button>
   </div>
 </form>

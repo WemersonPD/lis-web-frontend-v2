@@ -64,8 +64,11 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
         Agregados: this.formBuilder.array([]),
       }),
       AtividadePrincipal: ['', []],
-      FormaPagamento: ['', [Validators.required]],
-      Consignado: ['', []],
+      FormaPagamento: [0, [Validators.required]],
+      Consignado: this.formBuilder.group({
+        Funcional: ['', []],
+        Matricula: ['', [Validators.required]],
+      }),
       Debito: ['', []],
       DPS: ['', []],
       Origem: ['', []],
