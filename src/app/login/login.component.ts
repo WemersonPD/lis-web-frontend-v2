@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
     const { cpf, senha } = this.loginForm.getRawValue();
     this.authService.autenticar(cpf, senha).subscribe(
       (token) => {
-        this.router.navigate(['/', 'seguro-individual-plano-form']);
-        this.tokenService.setToken(token['access_token']);
         Swal.fire('Bem vindo', '', 'success');
+        this.tokenService.setToken(token['access_token']);
+        this.router.navigate(['/', 'seguro-individual-plano-form']);
       },
       (err) => {
         Swal.fire('Ops', 'Verifique seus dados', 'error');

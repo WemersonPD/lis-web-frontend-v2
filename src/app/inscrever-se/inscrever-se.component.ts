@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 
 import { UsuarioService } from '../core/usuario/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './inscrever-se.component.html',
@@ -12,7 +13,8 @@ export class InscreverSeComponent implements OnInit {
   public inscreverSeForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -29,8 +31,9 @@ export class InscreverSeComponent implements OnInit {
   public increverSe(): void {
     const usuario = this.inscreverSeForm.getRawValue();
     this.usuarioService.criarUsuario(usuario).subscribe(
-      (usuario) => {
+      () => {
         Swal.fire('Usuário cadastrado com sucesso', '', 'success');
+        this.router.navigate(['']);
       },
       (erro) => {
         Swal.fire('Erro ao cadastrar o usuário', '', 'error');
