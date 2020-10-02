@@ -7,6 +7,7 @@ import { MensagemErroModule } from './../publico/componentes/mensagem-erro/mensa
 import { AuthModule } from './../core/auth/auth.module';
 import { TokenModule } from './../core/token/token.module';
 import { LoginGuard } from './login.guard';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -16,6 +17,7 @@ import { LoginGuard } from './login.guard';
     MensagemErroModule,
     AuthModule,
     TokenModule,
+    RouterModule,
   ],
   providers: [LoginGuard],
 })
