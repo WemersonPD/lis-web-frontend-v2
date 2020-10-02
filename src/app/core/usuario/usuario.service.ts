@@ -31,4 +31,8 @@ export class UsuarioService {
   public sair() {
     this.tokenService.removeToken();
   }
+
+  public estaLogado() {
+    return this.tokenService.hasToken();
+  }
 }

@@ -6,7 +6,7 @@ import { LoginComponent } from './login.component';
 import { MensagemErroModule } from './../publico/componentes/mensagem-erro/mensagem-erro.module';
 import { AuthModule } from './../core/auth/auth.module';
 import { TokenModule } from './../core/token/token.module';
-
+import { LoginGuard } from './login.guard';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -16,6 +16,7 @@ import { TokenModule } from './../core/token/token.module';
     MensagemErroModule,
     AuthModule,
     TokenModule,
-  ]
+  ],
+  providers: [LoginGuard],
 })
-export class LoginModule { }
+export class LoginModule {}

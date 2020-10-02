@@ -124,7 +124,8 @@ export class SeguroIndividualPlanoFormComponent implements OnInit {
         console.log(resp);
       },
       (err) => {
-        Swal.fire('Erro ao contratar', err, 'error');
+        console.log(err);
+        Swal.fire('Erro ao contratar', '', 'error');
       }
     );
     console.log(form);

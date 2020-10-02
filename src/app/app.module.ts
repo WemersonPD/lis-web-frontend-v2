@@ -8,6 +8,7 @@ import { CabecalhoModule } from './core/cabecalho/cabecalho.module';
 import { InscreverSeModule } from './inscrever-se/inscrever-se.module';
 import { UploadArquivoModule } from './upload-arquivo/upload-arquivo.module';
 import { SeguroIndividualPlanoModule } from './seguro-individual-plano/seguro-individual-plano.module';
+import { AuthModule } from './core/auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { SeguroIndividualPlanoModule } from './seguro-individual-plano/seguro-in
     InscreverSeModule,
     UploadArquivoModule,
     SeguroIndividualPlanoModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

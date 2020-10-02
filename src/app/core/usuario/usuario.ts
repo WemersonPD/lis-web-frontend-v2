@@ -1,9 +1,9 @@
 export class Usuario {
-  cpf: string;
-  nome: string;
-  dataNacimento: Date;
-  rg: string;
-  email: string;
-  telefone: string;
-  senha: string;
+  Cpf: string;
+  Nome: string;
+  DataNacimento: Date;
+  Rg: string;
+  Email: string;
+  Telefone: string;
+  Senha: string;
 }
