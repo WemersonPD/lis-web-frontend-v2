@@ -121,6 +121,7 @@ export class UploadArquivoComponent implements OnInit {
       //   console.log(seguroIndividual);
       // }
       // this.segurosIndividuais = seguroIndividualArray;
+      this.segurosIndividuais = jsonData;
       console.log(this.segurosIndividuais);
     };
     reader.readAsBinaryString(file);
