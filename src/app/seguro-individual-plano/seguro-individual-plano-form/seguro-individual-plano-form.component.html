@@ -1,0 +1,1018 @@
+<form
+  [formGroup]="seguroIndividualPlanoForm"
+  class="container"
+  (submit)="contratar()"
+>
+  <legend class="text-center my-5">Plano de seguro individual</legend>
+  <div class="row">
+    <div class="form-group col-4 mb-5">
+      <label>Produto <span class="text-danger">*</span></label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="Produto"
+        placeholder="Informe o código do produto"
+      />
+      <app-mensagem-erro
+        texto="Código do produto inválido"
+        *ngIf="
+          seguroIndividualPlanoForm.get('Produto').errors?.required &&
+          seguroIndividualPlanoForm.get('Produto').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Plano <span class="text-danger">*</span></label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="Plano"
+        placeholder="Informe o código do plano"
+      />
+      <app-mensagem-erro
+        texto="Código do plano inválido"
+        *ngIf="
+          seguroIndividualPlanoForm.get('Plano').errors?.required &&
+          seguroIndividualPlanoForm.get('Plano').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Capital</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="Capital"
+        placeholder="Informe o capital do segurado"
+      />
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Corretor <span class="text-danger">*</span></label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="Corretor"
+        placeholder="Informe o código do corretor"
+      />
+      <app-mensagem-erro
+        texto="Código do corretor inválido"
+        *ngIf="
+          seguroIndividualPlanoForm.get('Corretor').errors?.required &&
+          seguroIndividualPlanoForm.get('Corretor').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Data de início da vigência</label>
+      <input
+        type="date"
+        class="form-control"
+        formControlName="DataInicioVigencia"
+        placeholder="Informe a data de início"
+      />
+      <app-mensagem-erro
+        texto="A data de iníco da vigência está inválida"
+        *ngIf="
+          seguroIndividualPlanoForm.get('DataInicioVigencia').errors
+            ?.required &&
+          seguroIndividualPlanoForm.get('DataInicioVigencia').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Data de fim da vigência</label>
+      <input
+        type="date"
+        class="form-control"
+        formControlName="DataFimVigencia"
+        placeholder="Informe o Data de fim da vigência"
+      />
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Frequência de emissão <span class="text-danger">*</span></label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="FrequenciaEmissao"
+        placeholder="Informe a frequência de emissão"
+      />
+      <app-mensagem-erro
+        texto="Frequência de emissão inválida"
+        *ngIf="
+          seguroIndividualPlanoForm.get('FrequenciaEmissao').errors?.required &&
+          seguroIndividualPlanoForm.get('FrequenciaEmissao').dirty
+        "
+      ></app-mensagem-erro>
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Tipo de vencimento</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="TipoVencimento"
+        placeholder="Informe o tipo de vencimento"
+      />
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Dia de vencimento</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="DiaVencimento"
+        placeholder="Informe o dia de vencimento"
+      />
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Dias úteis de vencimento</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="DiasUteisVencimento"
+        placeholder="Informe os Dias úteis de vencimento"
+      />
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Atividade Principal</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="AtividadePrincipal"
+        placeholder="Informe a atividade principal"
+      />
+    </div>
+    <div class="form-group col-4 mb-5">
+      <label>Código de origem da proposta</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="Origem"
+        placeholder="Informe o código de origem da proposta"
+      />
+    </div>
+    <!-- Segurado apartir daqui -->
+    <div formGroupName="Segurado" class="col-12 row">
+      <h3 class="text-center col-12 mb-5">Segurado</h3>
+      <div class="form-group col-4 mb-5">
+        <label>Código do segurado</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="Codigo"
+          placeholder="Informe o código do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>QRCode do segurado</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="QRCode"
+          placeholder="Informe o QRCode do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>DVCode do segurado</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="DVCode"
+          placeholder="Informe o DVCode do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>CPF do segurado <span class="text-danger">*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="Cpf"
+          placeholder="Informe o CPF do segurado"
+        />
+        <app-mensagem-erro
+          texto="O CPF é inválido"
+          *ngIf="
+            seguroIndividualPlanoForm.get('Segurado.Cpf').errors?.required &&
+            seguroIndividualPlanoForm.get('Segurado.Cpf').dirty
+          "
+        ></app-mensagem-erro>
+        <app-mensagem-erro
+          texto="O CPF deve conter 11 caracteres"
+          *ngIf="
+            seguroIndividualPlanoForm.get('Segurado.Cpf').dirty &&
+            (seguroIndividualPlanoForm.get('Segurado.Cpf').errors?.minlength ||
+              seguroIndividualPlanoForm.get('Segurado.Cpf').errors?.maxlength)
+          "
+        ></app-mensagem-erro>
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Nome do segurado <span class="text-danger">*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="Nome"
+          placeholder="Informe o nome do segurado"
+        />
+        <app-mensagem-erro
+          texto="O nome é inválido"
+          *ngIf="
+            seguroIndividualPlanoForm.get('Segurado.Nome').errors?.required &&
+            seguroIndividualPlanoForm.get('Segurado.Nome').dirty
+          "
+        ></app-mensagem-erro>
+        <app-mensagem-erro
+          texto="O Nome não deve conter mais de 50 caracteres"
+          *ngIf="
+            seguroIndividualPlanoForm.get('Segurado.Nome').dirty &&
+            seguroIndividualPlanoForm.get('Segurado.Nome').errors?.maxlength
+          "
+        ></app-mensagem-erro>
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label
+          >Data de nascimento do segurado
+          <span class="text-danger">*</span></label
+        >
+        <input
+          type="date"
+          class="form-control"
+          formControlName="DataNacimento"
+          placeholder="Informe a data de nascimento do segurado"
+        />
+        <app-mensagem-erro
+          texto="A data de nascimento do segurado é inválida"
+          *ngIf="
+            seguroIndividualPlanoForm.get('Segurado.DataNacimento').errors
+              ?.required &&
+            seguroIndividualPlanoForm.get('Segurado.DataNacimento').dirty
+          "
+        ></app-mensagem-erro>
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label
+          >Capital base do segurado <span class="text-danger">*</span></label
+        >
+        <input
+          type="number"
+          class="form-control"
+          formControlName="Capital"
+          placeholder="Informe o capital"
+        />
+        <app-mensagem-erro
+          texto="O capital é inválido"
+          *ngIf="
+            seguroIndividualPlanoForm.get('Segurado.Capital').errors
+              ?.required &&
+            seguroIndividualPlanoForm.get('Segurado.Capital').dirty
+          "
+        ></app-mensagem-erro>
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Código da profissão do segurado</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="Profissao"
+          placeholder="Informe o código da profissão do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Código da faixa salarial do segurado</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="FaixaSalarial"
+          placeholder="Informe a profissão do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label
+          >Codigo do gênero do segurado
+          <span class="text-danger">*</span></label
+        >
+        <input
+          type="number"
+          class="form-control"
+          formControlName="Genero"
+          placeholder="Informe o codigo do gênero do segurado"
+        />
+        <app-mensagem-erro
+          texto="O gênero é inválido"
+          *ngIf="
+            seguroIndividualPlanoForm.get('Segurado.Genero').errors?.required &&
+            seguroIndividualPlanoForm.get('Segurado.Genero').dirty
+          "
+        ></app-mensagem-erro>
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Código da fonte de renda do segurado</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="Genero"
+          placeholder="Informe o código da fonte de renda do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label
+          >Código do estado civil do segurado
+          <span class="text-danger">*</span></label
+        >
+        <input
+          type="number"
+          class="form-control"
+          formControlName="EstadoCivil"
+          placeholder="Informe o código do estado civil do segurado"
+        />
+        <app-mensagem-erro
+          texto="O código do estado civil é inválido"
+          *ngIf="
+            seguroIndividualPlanoForm.get('Segurado.EstadoCivil').errors
+              ?.required &&
+            seguroIndividualPlanoForm.get('Segurado.EstadoCivil').dirty
+          "
+        ></app-mensagem-erro>
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Nome do conjuge</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="NomeConjuge"
+          placeholder="Informe o nome do conjuge"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Data de nascimento do conjuge</label>
+        <input
+          type="date"
+          class="form-control"
+          formControlName="DataNascimentoConjuge"
+          placeholder="Informe a data de nascimento do conjuge"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Email do segurado</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="Email"
+          placeholder="Informe a data de nascimento do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Telefone residencial do segurado</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="TelefoneResidencial"
+          placeholder="Informe o telefone residencial do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Telefone comercial do segurado</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="TelefoneComercial"
+          placeholder="Informe o telefone comercial do segurado"
+        />
+      </div>
+      <div class="form-group col-4 mb-5">
+        <label>Telefone celular do segurado</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="TelefoneCelular"
+          placeholder="Informe o telefone celular do segurado"
+        />
+      </div>
+      <div formGroupName="Endereco" class="col-12 row">
+        <h3 class="col-12 text-center my-5">Endereço do segurado</h3>
+        <div class="form-group col-4 mb-5">
+          <label>Endereço do segurado <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Endereco"
+            placeholder="Informe o endereço do segurado"
+          />
+          <app-mensagem-erro
+            texto="O endereço do segurado é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Endereco').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Endereco').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="O endereço do segurado não deve conter mais de 50 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Endereco').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Endereco').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label
+            >Número de endereço do segurado
+            <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Numero"
+            placeholder="Informe o número de endereço do segurado"
+          />
+          <app-mensagem-erro
+            texto="O número de endereço do segurado é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Numero').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Numero').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="O número de endereço do segurado não deve conter mais de 50 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Numero').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Numero').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label
+            >Complemento de endereço do segurado
+            <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Complemento"
+            placeholder="Informe o complemento de endereço do segurado"
+          />
+          <app-mensagem-erro
+            texto="O Complemento de endereço do segurado não deve conter mais de 30 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Complemento')
+                .errors?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Complemento')
+                .dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label>Bairro do segurado <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Bairro"
+            placeholder="Informe o Bairro do segurado"
+          />
+          <app-mensagem-erro
+            texto="O bairro do segurado é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Bairro').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Bairro').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="O bairro do segurado não deve conter mais de 25 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Bairro').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Bairro').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label>Cidade do segurado <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="Cidade"
+            placeholder="Informe a cidade do segurado"
+          />
+          <app-mensagem-erro
+            texto="A cidade do segurado é inválida"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Cidade').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Cidade').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="A cidade do segurado não deve conter mais de 25 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Cidade').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.Cidade').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label>UF do segurado <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="UF"
+            placeholder="Informe o UF do segurado"
+          />
+          <app-mensagem-erro
+            texto="O UF do segurado é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.UF').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.UF').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="O UF do segurado não deve conter mais de 2 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.UF').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.UF').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+        <div class="form-group col-4 mb-5">
+          <label>CEP do segurado <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="CEP"
+            placeholder="Informe o CEP do segurado"
+          />
+          <app-mensagem-erro
+            texto="O CEP do segurado é inválido"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.CEP').errors
+                ?.required &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.CEP').dirty
+            "
+          ></app-mensagem-erro>
+          <app-mensagem-erro
+            texto="O CEP do segurado não deve conter mais de 8 caracteres"
+            *ngIf="
+              seguroIndividualPlanoForm.get('Segurado.Endereco.CEP').errors
+                ?.maxlength &&
+              seguroIndividualPlanoForm.get('Segurado.Endereco.CEP').dirty
+            "
+          ></app-mensagem-erro>
+        </div>
+      </div>
+      <div class="col-12 row">
+        <h3 class="mr-2 text-center col-12 mt-5">Benificiário do segurado</h3>
+        <div class="col-12 d-flex justify-content-center mb-5">
+          <button
+            (click)="addBeneficiario()"
+            type="button"
+            class="btn btn-primary mr-2"
+          >
+            Adicionar
+          </button>
+          <button
+            (click)="removerBeneficiario()"
+            type="button"
+            class="btn btn-danger"
+          >
+            Remover
+          </button>
+        </div>
+
+        <div
+          formArrayName="Beneficiarios"
+          *ngFor="let beneficiario of Beneficiarios.controls; index as i"
+          class="col-12 row"
+        >
+          <div [formGroupName]="i" class="col-12 row">
+            <div class="form-group col-4 mb-5">
+              <label
+                >Nome do benificiário <span class="text-danger">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Nome"
+                placeholder="Informe o nome do benificiário"
+              />
+              <app-mensagem-erro
+                texto="O nome do benificiário é inválido"
+                *ngIf="
+                  beneficiario.get('Nome').errors?.required &&
+                  beneficiario.get('Nome').dirty
+                "
+              ></app-mensagem-erro>
+              <app-mensagem-erro
+                texto="O nome não deve conter mais de 50 caracteres"
+                *ngIf="
+                  beneficiario.get('Nome').dirty &&
+                  beneficiario.get('Nome').errors?.maxlength
+                "
+              ></app-mensagem-erro>
+            </div>
+            <div class="form-group col-4 mb-5">
+              <label
+                >Parentesco do benificiário
+                <span class="text-danger">*</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                formControlName="Parentesco"
+                placeholder="Informe o parentesco do benificiário"
+              />
+              <app-mensagem-erro
+                texto="O parentesco do benificiário é inválido"
+                *ngIf="
+                  beneficiario.get('Parentesco').errors?.required &&
+                  beneficiario.get('Parentesco').dirty
+                "
+              ></app-mensagem-erro>
+            </div>
+            <div class="form-group col-4 mb-5">
+              <label
+                >Percentual do benificiário
+                <span class="text-danger">*</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                formControlName="Percentual"
+                placeholder="Informe o percentual do benificiário"
+              />
+              <app-mensagem-erro
+                texto="O Percentual do benificiário é inválido"
+                *ngIf="
+                  beneficiario.get('Percentual').errors?.required &&
+                  beneficiario.get('Percentual').dirty
+                "
+              ></app-mensagem-erro>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 row">
+        <h3 class="mr-2 text-center col-12 mt-5">Agregado do segurado</h3>
+        <div class="col-12 d-flex justify-content-center mb-5">
+          <button
+            (click)="addAgregado()"
+            type="button"
+            class="btn btn-primary mr-2"
+          >
+            Adicionar
+          </button>
+          <button
+            (click)="removerAgregado()"
+            type="button"
+            class="btn btn-danger"
+          >
+            Remover
+          </button>
+        </div>
+
+        <div
+          formArrayName="Agregados"
+          *ngFor="let agregado of Agregados.controls; index as i"
+          class="col-12 row"
+        >
+          <div class="col-12 row" [formGroupName]="i">
+            <div class="form-group col-6 mb-5">
+              <label>CPF do agregado <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Cpf"
+                placeholder="Informe o CPF do agregado"
+              />
+              <app-mensagem-erro
+                texto="O CPF é inválido"
+                *ngIf="
+                  agregado.get('Cpf').errors?.required &&
+                  agregado.get('Cpf').dirty
+                "
+              ></app-mensagem-erro>
+              <app-mensagem-erro
+                texto="O CPF deve conter 11 caracteres"
+                *ngIf="
+                  agregado.get('Cpf').dirty &&
+                  (agregado.get('Cpf').errors?.minlength ||
+                    agregado.get('Cpf').errors?.maxlength)
+                "
+              ></app-mensagem-erro>
+            </div>
+            <div class="form-group col-6 mb-5">
+              <label>Nome do agregado <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="Nome"
+                placeholder="Informe o nome do agregado"
+              />
+              <app-mensagem-erro
+                texto="O nome do agregado é inválido"
+                *ngIf="
+                  agregado.get('Nome').errors?.required &&
+                  agregado.get('Nome').dirty
+                "
+              ></app-mensagem-erro>
+              <app-mensagem-erro
+                texto="O nome não deve conter mais de 50 caracteres"
+                *ngIf="
+                  agregado.get('Nome').dirty &&
+                  agregado.get('Nome').errors?.maxlength
+                "
+              ></app-mensagem-erro>
+            </div>
+            <div class="form-group col-6 mb-5">
+              <label
+                >Data de nascimento do agregado
+                <span class="text-danger">*</span></label
+              >
+              <input
+                type="date"
+                class="form-control"
+                formControlName="DataNascimento"
+                placeholder="Informe a data de nascimento do segurado"
+              />
+              <app-mensagem-erro
+                texto="A data de nascimento do segurado é inválida"
+                *ngIf="
+                  agregado.get('DataNascimento').errors?.required &&
+                  agregado.get('DataNascimento').dirty
+                "
+              ></app-mensagem-erro>
+            </div>
+            <div class="form-group col-6 mb-5">
+              <label>Tipo do agregado <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="AgregadoTipo"
+                placeholder="Informe o tipo do agregado"
+              />
+              <app-mensagem-erro
+                texto="O CPF é inválido"
+                *ngIf="
+                  agregado.get('AgregadoTipo').errors?.required &&
+                  agregado.get('AgregadoTipo').dirty
+                "
+              ></app-mensagem-erro>
+            </div>
+          </div>
+          <hr class="col-12 mb-5" />
+        </div>
+      </div>
+    </div>
+    <!-- Segurado até aqui -->
+    <!-- Forma de pagamento aqui -->
+    <div class="form-group col-12 row mt-5">
+      <h3 class="col-12 text-center">Forma de pagamento</h3>
+      <label class="col-12 text-center">Selecione a forma de pagamento</label>
+      <select class="form-control" formControlName="FormaPagamento">
+        <option value="0" [selected]="true">Boleto</option>
+        <option value="1">Débito em conta</option>
+        <option value="2">Consignado</option>
+        <option value="4">Consignado INSS</option>
+      </select>
+      <div
+        class="col-12 row"
+        *ngIf="seguroIndividualPlanoForm.get('FormaPagamento').value == 1"
+      >
+        <div formGroupName="Debito" class="col-12 row">
+          <h3 class="text-center col-12 mt-5">Debito</h3>
+          <div class="form-group col-4 my-5">
+            <label>Número do banco <span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Banco"
+              placeholder="Informe o número do banco"
+            />
+            <app-mensagem-erro
+              texto="O número do banco é inválido"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.Banco').errors
+                  ?.required &&
+                seguroIndividualPlanoForm.get('Debito.Banco').dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O número do banco deve conter 3 caracters"
+              *ngIf="
+                (seguroIndividualPlanoForm.get('Debito.Banco').errors
+                  ?.maxlength ||
+                  seguroIndividualPlanoForm.get('Debito.Banco').errors
+                    ?.minlength) &&
+                seguroIndividualPlanoForm.get('Debito.Banco').dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+          <div class="form-group col-4 my-5">
+            <label>Código da agência <span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Agencia"
+              placeholder="Informe o código da agência"
+            />
+            <app-mensagem-erro
+              texto="O código da agência é inválida"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.Agencia').errors
+                  ?.required &&
+                seguroIndividualPlanoForm.get('Debito.Agencia').dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O código da agência deve conter 4 caracters"
+              *ngIf="
+                (seguroIndividualPlanoForm.get('Debito.Agencia').errors
+                  ?.maxlength ||
+                  seguroIndividualPlanoForm.get('Debito.Agencia').errors
+                    ?.minlength) &&
+                seguroIndividualPlanoForm.get('Debito.Agencia').dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+          <div class="form-group col-4 my-5">
+            <label>Dígito verificador da agência</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="DigitoVerificadorAgencia"
+              placeholder="Informe o dígito verificador da agência"
+            />
+          </div>
+          <div class="form-group col-4 my-5">
+            <label
+              >Número da conta corrente sem o dígito
+              <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Conta"
+              placeholder="Informe o número da conta corrente sem o dígito"
+            />
+            <app-mensagem-erro
+              texto="O número da conta corrente sem o dígito é inválida"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.Conta').errors
+                  ?.required &&
+                seguroIndividualPlanoForm.get('Debito.Conta').dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O número da conta deve conter 4 caracters"
+              *ngIf="
+                (seguroIndividualPlanoForm.get('Debito.Conta').errors
+                  ?.maxlength ||
+                  seguroIndividualPlanoForm.get('Debito.Conta').errors
+                    ?.minlength) &&
+                seguroIndividualPlanoForm.get('Debito.Conta').dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+          <div class="form-group col-4 my-5">
+            <label
+              >Digito verificador da Conta corrente
+              <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="DigitoVerificadorConta"
+              placeholder="Informe o digito verificador da conta corrente"
+            />
+            <app-mensagem-erro
+              texto="O digito verificador da conta corrente é inválido"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .errors?.required &&
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O digito verificador deve conter no mínimo 1 caractere"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .errors?.minlength &&
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .dirty
+              "
+            ></app-mensagem-erro>
+            <app-mensagem-erro
+              texto="O digito verificador deve conter no máximo 2 caracteres"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .errors?.maxlength &&
+                seguroIndividualPlanoForm.get('Debito.DigitoVerificadorConta')
+                  .dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          seguroIndividualPlanoForm.get('FormaPagamento').value == 2 ||
+          seguroIndividualPlanoForm.get('FormaPagamento').value == 4
+        "
+        class="col-12 row"
+      >
+        <ng-container
+          *ngIf="
+            seguroIndividualPlanoForm.get('FormaPagamento').value == 2;
+            else inss
+          "
+        >
+          <h3 class="text-center col-12 mt-5">Consignado</h3>
+        </ng-container>
+        <ng-template #inss>
+          <h3 class="text-center col-12 mt-5">Consignado INSS</h3>
+        </ng-template>
+        <div formGroupName="Consignado" class="col-12 row">
+          <div class="form-group col-6 my-5">
+            <label>Funcional do consignado</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="Funcional"
+              placeholder="Informe o funcional do consignado"
+            />
+          </div>
+          <div class="form-group col-6 my-5">
+            <label
+              >Matrícula do consignado <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Matricula"
+              placeholder="Informe o número da matrícula/benefício"
+            />
+            <app-mensagem-erro
+              texto="A Matrícula é inválida"
+              *ngIf="
+                seguroIndividualPlanoForm.get('Consignado.Matricula').errors
+                  ?.required &&
+                seguroIndividualPlanoForm.get('Consignado.Matricula').dirty
+              "
+            ></app-mensagem-erro>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 row">
+        <h3 class="mr-2 text-center col-12 mt-5">DPS</h3>
+        <div class="col-12 d-flex justify-content-center mb-5">
+          <button (click)="addDPS()" type="button" class="btn btn-primary mr-2">
+            Adicionar
+          </button>
+          <button (click)="removerDPS()" type="button" class="btn btn-danger">
+            Remover
+          </button>
+        </div>
+      </div>
+
+      <div
+        formArrayName="DPS"
+        *ngFor="let dps of DPS.controls; index as i"
+        class="col-12 row"
+      >
+        <div [formGroupName]="i" class="col-12 row">
+          <div class="form-group col-4 mb-5">
+            <label>Código da DPS</label>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="Codigo"
+              placeholder="Informe o código da DPS"
+            />
+          </div>
+          <div class="form-group col-4 mb-5">
+            <label>Resposta</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Resposta"
+              placeholder="Informe a resposta"
+            />
+          </div>
+          <div class="form-group col-4 mb-5">
+            <label>Explicação da reposta</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Texto"
+              placeholder="Informe a explicação da reposta"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mt-3 col-12">Contratar</button>
+  </div>
+</form>

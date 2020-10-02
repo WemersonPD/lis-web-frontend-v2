@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lis-web-frontend-v2"
+    }
+  },
+  "defaultProject": "lis-web-frontend-v2",
+  "cli": {
+    "analytics": "83b724cf-e307-4cca-961f-bfac28b0e3de"
+  }
 }
