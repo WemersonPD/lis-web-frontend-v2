@@ -3,8 +3,13 @@
     class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top d-flex justify-content-between"
   >
     <a class="navbar-brand" href="#">EZZE SEGUROS</a>
-    <div>
-      <a>{{ usuario?.nome }}</a>
+    <div *ngIf="!!usuario; else logar">
+      <h2>Aqui</h2>
+      <h2>{{ usuario.nome }}</h2>
+      <a (click)="sair()"> (sair)</a>
     </div>
+    <ng-template #logar>
+      <a [routerLink]="['']" class="text-dark">Logar</a>
+    </ng-template>
   </nav>
 </header>

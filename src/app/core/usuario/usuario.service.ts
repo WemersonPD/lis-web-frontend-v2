@@ -27,4 +27,8 @@ export class UsuarioService {
   public criarUsuario(usuario: Usuario) {
     return this.httpClient.post(this.apiUrl, usuario);
   }
+
+  public sair() {
+    this.tokenService.removeToken();
+  }
 }

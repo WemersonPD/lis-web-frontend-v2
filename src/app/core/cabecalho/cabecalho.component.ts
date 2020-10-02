@@ -1,8 +1,8 @@
 import { TokenService } from './../token/token.service';
-import { Observable } from 'rxjs';
 import { UsuarioService } from './../usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cabecalho',
@@ -13,7 +13,8 @@ export class CabecalhoComponent implements OnInit {
   public usuario: Usuario;
   constructor(
     private usuarioService: UsuarioService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -23,5 +24,10 @@ export class CabecalhoComponent implements OnInit {
         (err) => console.log(err)
       );
     }
+  }
+
+  sair() {
+    this.usuarioService.sair();
+    this.router.navigate(['']);
   }
 }
