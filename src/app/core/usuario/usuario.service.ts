@@ -25,7 +25,6 @@ export class UsuarioService {
   }
 
   public criarUsuario(usuario: Usuario) {
-    console.log(this.httpClient.post(this.apiUrl, usuario));
     return this.httpClient.post(this.apiUrl, usuario);
   }
 }

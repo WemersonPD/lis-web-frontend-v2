@@ -13,7 +13,8 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public autenticar(email: string, senha: string): Observable<Token> {
-    return this.httpClient.post<Token>(this.apiAuth, { email, senha });
+  public autenticar(cpf: string, senha: string): Observable<Token> {
+    const body = `username=${cpf}&password=${senha}&grant_type=password`;
+    return this.httpClient.post<Token>(this.apiAuth, body);
   }
 }

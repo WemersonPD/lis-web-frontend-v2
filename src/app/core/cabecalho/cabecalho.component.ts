@@ -7,22 +7,21 @@ import { Usuario } from '../usuario/usuario';
 @Component({
   selector: 'app-cabecalho',
   templateUrl: './cabecalho.component.html',
-  styleUrls: ['./cabecalho.component.css']
+  styleUrls: ['./cabecalho.component.css'],
 })
 export class CabecalhoComponent implements OnInit {
   public usuario: Usuario;
   constructor(
     private usuarioService: UsuarioService,
     private tokenService: TokenService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     if (this.tokenService.hasToken()) {
       this.usuarioService.pegarUsuario().subscribe(
-        (usuario) => this.usuario = usuario,
+        (usuario) => (this.usuario = usuario),
         (err) => console.log(err)
       );
     }
   }
-
 }
